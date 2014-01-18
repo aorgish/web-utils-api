@@ -28,7 +28,7 @@ exports.socialNetworkCounters = [
     url   : "http://vk.com/share.php?act=count&index=0&url=",
     method: regexp(/VK.Share.count\(\d+, (\d+)\);/) 
   }, { 
-    name  : "googlepls",
+    name  : "google_plus",
     url   : "https://apis.google.com/_/+1/fastbutton?annotation=inline&url=", 
     method: regexp(/<span class="A8 RZa">[\+\s]*(\d+)/) 
   }, { 
@@ -39,7 +39,12 @@ exports.socialNetworkCounters = [
     name  : "reddit",
     url   : "http://buttons.reddit.com/button_info.json?url=", 
     method: JSON.parse 
+  }, { 
+    name  : "xing",
+    url   : "http://www.xing-share.com/app/share?op=get_share_button;counter=right;hovercard_position=1;url=", 
+    method: regexp(/xing-count right">(\d+)</) 
   },
+
 ];
 
 function regexp(re) {
