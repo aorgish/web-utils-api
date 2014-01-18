@@ -35,6 +35,10 @@ exports.socialNetworkCounters = [
     name  : "ok",
     url   : "http://connect.odnoklassniki.ru/dk?st.cmd=WidgetShare&st.settings=%7Bwidth%3A125%2Cheight%3A25%2Cst%3A%27oval%27%2Csz%3A12%2Cck%3A1%7D&st.shareUrl=", 
     method: regexp(/klass_count">(\d+)</) 
+  }, { 
+    name  : "reddit",
+    url   : "http://buttons.reddit.com/button_info.json?url=", 
+    method: JSON.parse 
   },
 ];
 
