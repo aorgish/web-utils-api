@@ -24,7 +24,9 @@ exports.getPageInfo = function(req, res) {
        };}(item.name, item.method));
     });
 
-     function checkAllComplete() {
+    
+
+    function checkAllComplete() {
        liveRequests--;
        if (liveRequests===0) {
           res.send(result);
