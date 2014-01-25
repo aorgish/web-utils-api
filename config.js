@@ -43,7 +43,11 @@ exports.socialNetworkCounters = [
     name  : "xing",
     url   : "http://www.xing-share.com/app/share?op=get_share_button;counter=right;hovercard_position=1;url=", 
     method: regexp(/xing-count right">(\d+)</) 
-  },
+  }, { 
+    name  : "surfingboard",
+    url   : "http://surfingbird.ru/button?url=", 
+    method: regexp(/stats-num">(\d+)</) 
+  }
 
 ];
 
