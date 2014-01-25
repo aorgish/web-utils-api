@@ -1,0 +1,131 @@
+
+<div class="page-header">
+  <h1><small>page-info method</small></h1>
+</div>
+
+<div>
+  <div class="input-group">
+     <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+     <input type="text" class="form-control" placeholder="Enter page url">
+     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+  </div>  
+
+<div class="panel social-list">
+	
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-facebook-square color-facebook"></i>
+        <span class="social-label">Facebook</span>
+     </div>
+     <div class="data-group">
+         <span class="social-value">12367</span>
+         <div class="progress">
+           <div class="progress-bar bkcolor-facebook" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-twitter-square color-twitter"></i>
+        <span class="social-label">Twitter</span>
+     </div>
+     <div class="data-group">
+         <div class="social-value">12356</div>
+         <div class="progress">
+           <div class="progress-bar bkcolor-twitter" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-google-plus-square color-google-plus"></i>
+        <span class="social-label">Google+</span>
+     </div>
+     <div class="data-group">
+         <span class="social-value">1235609</span>
+         <div class="progress">
+           <div class="progress-bar bkcolor-google-plus" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-linkedin-square color-linkedin"></i>
+        <span class="social-label">LinkedIn</span>
+     </div>
+     <div class="data-group">
+         <span class="social-value">18900367</span>
+         <div class="progress">
+           <div class="progress-bar bkcolor-linkedin" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-pinterest-square color-pinterest"></i>
+        <span class="social-label">Pinterest</span>
+     </div>
+     <div class="data-group">
+         <span class="social-value">123</span>
+         <div class="progress">
+           <div class="progress-bar bkcolor-pinterest" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-xing-square color-xing"></i>
+        <span class="social-label">Xing</span>
+     </div>
+     <div class="data-group">
+         <span class="social-value">12367</span>
+         <div class="progress">
+           <div class="progress-bar bkcolor-xing" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+  <div>
+     <div class="label-group">
+        <i class="fa fa-vk color-vk"></i>
+        <span class="social-label">VKontakte</span>
+     </div>
+     <div class="data-group">
+         <span class="social-value">12367</span>
+         <div class="progress">
+           <div class="progress-bar bkcolor-vk" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           </div>
+         </div>
+     </div>
+  </div>
+
+</div>
+
+  <div class="panel panel-default item-card" ng-repeat="item in data.Items">
+        <div class="panel-heading">
+            <span class="glyphicon" ng-class="{ 'glyphicon-file' : item.ContentType=='Tactic', 
+                                                'glyphicon-folder-open' : item.ContentType=='Campaign' }">
+            </span> 
+            {{item.Name}}
+        </div>
+        <div class="panel-body">
+            <div class="item-thumbnail">
+                <img ng-src="{{item.Previews[0].HRef}}"/>
+            </div>
+            <div class="item-description">{{item.Description}}</div>
+        </div>
+    </div>
+</div>
+
