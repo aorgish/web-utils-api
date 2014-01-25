@@ -5,6 +5,7 @@
 angular.module('apiSample', ['ngRoute','apiSample.filters', 'apiSample.services', 'apiSample.directives', 'apiSample.controllers']).
   config(['$routeProvider', function ($routeProvider) {
 
-    $routeProvider.when('/page-info/', {templateUrl: 'partials/page-info.html', controller: 'viewCtrl'});
-    $routeProvider.otherwise({redirectTo: '/page-info'});
+    $routeProvider.when('/page-info/:pageUrl*', {templateUrl: 'partials/page-info.html', controller: 'viewCtrl'});
+    $routeProvider.when('/page-info',           {templateUrl: 'partials/page-info.html', controller: 'viewCtrl'});
+    $routeProvider.otherwise({redirectTo: '/page-info/'});
   }]);

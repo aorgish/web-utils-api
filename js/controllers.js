@@ -13,15 +13,22 @@ angular.module('apiSample.controllers', [])
   }])
 
 
-  .controller('viewCtrl', ["$scope", "$http", function ($scope, $http) {
-
-      $scope.url = "";
+  .controller('viewCtrl', ["$scope", "$http", "$routeParams", "$location", function ($scope, $http, $routeParams, $location) {
+      
+     if (!$routeParams.pageUrl) $routeParams.pageUrl = ""; 
+      
+      $scope.model = { url : decodeURIComponent($routeParams.pageUrl) };
       initializeData();
 
       $scope.startSearch = function(event) {
-        if ($scope.url.trim()!=="")
-          getPageInfo();
+        if ($scope.model.url.trim()!=="")
+          $location.path("page-info/"+encodeURIComponent($scope.model.url.trim()));
+          console.log($location);
       }
+
+      if ($scope.model.url.trim()!=="")
+      	getPageInfo();
+
 
       function initializeData() {
 	  $scope.data = { 
@@ -36,7 +43,7 @@ angular.module('apiSample.controllers', [])
       }            
 
       function getPageInfo() {
-          var url = encodeURIComponent($scope.url.trim());
+          var url = encodeURIComponent($scope.model.url.trim());
           $http.get("http://web-utils-api.herokuapp.com/page-info/"+url,
                    { headers: {
                        "Accept"       : "application/json"
@@ -52,7 +59,7 @@ angular.module('apiSample.controllers', [])
 
       function setResults(response) {
           initializeData();
-          if (response.facebook) 
+          if (response.facebook && response.facebook[0]) 
              $scope.data.facebook.cnt = response.facebook[0].share_count;
           if (response.twitter) 
              $scope.data.twitter.cnt = response.twitter.count;
