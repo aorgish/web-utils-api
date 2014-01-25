@@ -6,8 +6,8 @@
 <div>
   <div class="input-group">
      <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-     <input type="text" class="form-control" placeholder="Enter page url">
-     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+     <input type="url" class="form-control" placeholder="Enter page url, ex https://github.com/blog/category/drinkup" ng-model="url">
+     <span class="input-group-addon" ng-click="startSearch()"><i class="glyphicon glyphicon-search"></i></span>
   </div>  
 
 <div class="panel social-list">
@@ -19,9 +19,9 @@
         <span class="social-label">Facebook</span>
      </div>
      <div class="data-group">
-         <span class="social-value">12367</span>
+         <span class="social-value">{{data.facebook.cnt}}</span>
          <div class="progress">
-           <div class="progress-bar bkcolor-facebook" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-facebook" role="progressbar" ng-style="{width: (data.facebook.progress+'%')}">
            </div>
          </div>
      </div>
@@ -33,9 +33,9 @@
         <span class="social-label">Twitter</span>
      </div>
      <div class="data-group">
-         <div class="social-value">12356</div>
+         <div class="social-value">{{data.twitter.cnt}}</div>
          <div class="progress">
-           <div class="progress-bar bkcolor-twitter" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-twitter" role="progressbar" ng-style="{width: (data.twitter.progress+'%')}">
            </div>
          </div>
      </div>
@@ -47,9 +47,9 @@
         <span class="social-label">Google+</span>
      </div>
      <div class="data-group">
-         <span class="social-value">1235609</span>
+         <span class="social-value">{{data.googlep.cnt}}</span>
          <div class="progress">
-           <div class="progress-bar bkcolor-google-plus" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-google-plus" role="progressbar" ng-style="{width: (data.googlep.progress+'%')}">
            </div>
          </div>
      </div>
@@ -61,9 +61,9 @@
         <span class="social-label">LinkedIn</span>
      </div>
      <div class="data-group">
-         <span class="social-value">18900367</span>
+         <span class="social-value">{{data.linkedin.cnt}}</span>
          <div class="progress">
-           <div class="progress-bar bkcolor-linkedin" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-linkedin" role="progressbar" ng-style="{width: (data.linkedin.progress+'%')}">
            </div>
          </div>
      </div>
@@ -75,9 +75,9 @@
         <span class="social-label">Pinterest</span>
      </div>
      <div class="data-group">
-         <span class="social-value">123</span>
+         <span class="social-value">{{data.pinterest.cnt}}</span>
          <div class="progress">
-           <div class="progress-bar bkcolor-pinterest" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-pinterest" role="progressbar" ng-style="{width: (data.pinterest.progress+'%')}">
            </div>
          </div>
      </div>
@@ -89,9 +89,9 @@
         <span class="social-label">Xing</span>
      </div>
      <div class="data-group">
-         <span class="social-value">12367</span>
+         <span class="social-value">{{data.xing.cnt}}</span>
          <div class="progress">
-           <div class="progress-bar bkcolor-xing" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-xing" role="progressbar" ng-style="{width: (data.xing.progress+'%')}">
            </div>
          </div>
      </div>
@@ -103,9 +103,9 @@
         <span class="social-label">VKontakte</span>
      </div>
      <div class="data-group">
-         <span class="social-value">12367</span>
+         <span class="social-value">{{data.vkontakte.cnt}}</span>
          <div class="progress">
-           <div class="progress-bar bkcolor-vk" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+           <div class="progress-bar bkcolor-vk" role="progressbar" ng-style="{width: (data.vkontakte.progress+'%')}">
            </div>
          </div>
      </div>
@@ -113,19 +113,5 @@
 
 </div>
 
-  <div class="panel panel-default item-card" ng-repeat="item in data.Items">
-        <div class="panel-heading">
-            <span class="glyphicon" ng-class="{ 'glyphicon-file' : item.ContentType=='Tactic', 
-                                                'glyphicon-folder-open' : item.ContentType=='Campaign' }">
-            </span> 
-            {{item.Name}}
-        </div>
-        <div class="panel-body">
-            <div class="item-thumbnail">
-                <img ng-src="{{item.Previews[0].HRef}}"/>
-            </div>
-            <div class="item-description">{{item.Description}}</div>
-        </div>
-    </div>
 </div>
 
