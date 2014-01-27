@@ -47,6 +47,10 @@ exports.socialNetworkCounters = [
     name  : "surfingboard",
     url   : "http://surfingbird.ru/button?url=", 
     method: regexp(/stats-num">(\d+)</) 
+  }, { 
+    name  : "bufferApp",
+    url   : "https://api.bufferapp.com/1/links/shares.json?url=", 
+    method: JSON.parse 
   }
 
 ];
