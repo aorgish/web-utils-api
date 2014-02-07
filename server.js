@@ -1,5 +1,7 @@
 var express = require("express");
 var api     = require('./api');
+var twitterApi = require('./twitter-api');
+
 
 var app = express();
 
@@ -9,7 +11,13 @@ app.all('*', function(req, res, next) {
   next();
 });
 
-app.get('/page-info/:url', api.getPageInfo);
+// seo
+app.get('/page-info/:url',               api.getPageInfo);
+// twitter
+app.get('/twitter/user/id/:id',          twitterApi.getUserById);
+app.get('/twitter/user/screen_name/:id', twitterApi.getUserByScreenName);
+
+
 
 var port = process.env.PORT || 80;
 
